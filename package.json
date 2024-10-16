@@ -1,0 +1,29 @@
+{
+  "name": "obsidian-dictation-plugin",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+    "build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+    "version": "node version-bump.mjs && git add manifest.json versions.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@codemirror/view": "^6.34.1",
+    "@types/node": "^22.7.5",
+    "builtin-modules": "^4.0.0",
+    "esbuild": "^0.24.0",
+    "obsidian": "^1.7.2",
+    "openai": "^4.67.3",
+    "style-mod": "^4.1.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.12.0",
+    "eslint": "^9.12.0",
+    "globals": "^15.11.0",
+    "typescript-eslint": "^8.9.0"
+  }
+}
