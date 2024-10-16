@@ -38,6 +38,12 @@ export default class DictationPlugin extends Plugin {
         },
       ],
     });
+
+    this.addCommand({
+      id: "transcribe-audio-file",
+      name: "Transcribe Existing Audio File",
+      callback: () => this.selectAudioFile(),
+    });
   }
 
   async loadSettings() {
@@ -46,6 +52,19 @@ export default class DictationPlugin extends Plugin {
 
   async saveSettings() {
     await this.saveData(this.settings);
+  }
+
+  async selectAudioFile() {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = "audio/*";
+    input.onchange = async () => {
+      if (input.files && input.files.length > 0) {
+        const file = input.files[0];
+        this.sendToWhisper(file);
+      }
+    };
+    input.click();
   }
 
   async startRecording() {
@@ -90,9 +109,9 @@ export default class DictationPlugin extends Plugin {
     }
   }
 
-  async sendToWhisper(audioBlob: Blob) {
+  async sendToWhisper(audioFile: File | Blob) {
     try {
-      const arrayBuffer = await audioBlob.arrayBuffer();
+      const arrayBuffer = await audioFile.arrayBuffer();
       const buffer = Buffer.from(arrayBuffer);
       const file = new File([buffer], "audio.webm", {type: "audio/webm"});
 

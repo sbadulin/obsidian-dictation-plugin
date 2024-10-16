@@ -5,13 +5,13 @@ This plugin allows you to quickly dictate notes in Obsidian using OpenAI's Whisp
 ## Features
 
 - **Start or Stop Recording** using `Cmd + Alt + D`, the ribbon icon, or the command palette.
-- **Transcribe Audio** using OpenAI Whisper.
+- **Transcribe Speech or Existing Audio File** using OpenAI Whisper.
 - **Summarize the Transcribed Text** using GPT-3.5 Turbo.
 - **Create and Open a Note** with the transcription and summary automatically formatted.
 
 ## Usage
 
-1. **Start Dictation**: Press `Cmd + Alt + D`, click the microphone icon in the sidebar, or use the command palette to start or stop recording.
+1. **Start Dictation**: Press `Cmd + Alt + D`, click the microphone icon in the sidebar, or use the command palette to start or stop recording. To transcribe an existing audio use "Transcribe Existing Audio File" command from the Command palette
 2. **Transcription**: The recorded audio is sent to OpenAI Whisper for transcription.
 3. **Summary**: The transcribed text is summarized using GPT-3.5 Turbo.
 4. **Create Note**: The final note, including the summary and transcription, is created and automatically opened in Obsidian.
@@ -35,4 +35,3 @@ This plugin allows you to quickly dictate notes in Obsidian using OpenAI's Whisp
 ## License
 
 This plugin is licensed under the MIT License.
-
